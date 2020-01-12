@@ -1,4 +1,5 @@
 
+do --- ffi-jit-call
 local ffi = require("ffi")
 
 ffi.cdef[[
@@ -35,7 +36,7 @@ double __stdcall stdcall_dd(double a, double b);
 float __stdcall stdcall_ff(float a, float b);
 ]]
 
-local lib = ffi.load("../clib/ctest")
+local lib = ffi.load("clib/ctest")
 
 do
   local x
@@ -152,3 +153,4 @@ if jit.arch == "x86" then
   end
 end
 
+end
